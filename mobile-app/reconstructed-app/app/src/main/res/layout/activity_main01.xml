@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  [신규 재구성] 당시 activity_main01.xml 원문은 존재하지 않습니다.
+  아래 요소는 최종보고서 ver1.5.0 "병실화면 코드" 설명 텍스트(원문)에 근거합니다:
+    "background=#EAF1E1"
+    "TextView를 사용하여 801,802,803호실을 만들었습니다"
+    "시작시간, 종료시간, 공실 여부도 TextView를 사용하여 만들었습니다"
+    "병실의 침대 번호도 만들었고 ... border_shape.xml 파일에서 가져와서 사용"
+    "ImageView를 사용하여 건양대학교 로고를 넣어주었습니다" (실제 이미지 파일 없어 생략)
+    "Button을 사용하여 ImageView 뒤에 배치하여 메인화면으로 돌아가는 버튼" → button05
+
+  [빌드 호환 대체] 원문은 ConstraintLayout 사용을 기술하지만, 이 빌드 환경의 AAPT2 리소스 링크 문제로
+  (docs/reconstruction-changes.md 참조) 표준 프레임워크 LinearLayout으로 동일한 배치를 재현했습니다.
+
+  @+id/textViewend1, @+id/textViewstart1, @+id/button05 는 recovered-source(MainActivity01.java)에서
+  실제 findViewById로 참조되는 ID입니다. 나머지(801/803호실)는 화면 설명 텍스트를 단순 재현한 것으로,
+  코드가 직접 참조하지 않아 기능은 없습니다.
+-->
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/room_background"
+    android:padding="16dp">
+
+    <!-- 원문: "Button을 사용하여 ImageView뒤에 배치하여 메인화면으로 돌아가는 버튼" -->
+    <Button
+        android:id="@+id/button05"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="←"
+        android:layout_marginBottom="16dp" />
+
+    <TextView
+        android:id="@+id/room801"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="801"
+        android:textStyle="bold"
+        android:background="@color/green"
+        android:padding="8dp"
+        android:layout_marginBottom="8dp" />
+
+    <TextView
+        android:id="@+id/room802"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="802"
+        android:textStyle="bold"
+        android:background="@color/green"
+        android:padding="8dp"
+        android:layout_marginBottom="8dp" />
+
+    <!-- recovered-source가 Firebase 경로 "802"를 하드코딩하므로, 시작/종료시간 표시는 802 구역에 배치 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginBottom="8dp">
+
+        <TextView
+            android:id="@+id/textViewstart1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/border_shape"
+            android:text="@string/vacant_label"
+            android:padding="8dp"
+            android:layout_marginEnd="8dp" />
+
+        <TextView
+            android:id="@+id/textViewend1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/border_shape"
+            android:text="@string/vacant_label"
+            android:padding="8dp" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/room803"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="803"
+        android:textStyle="bold"
+        android:background="@color/green"
+        android:padding="8dp" />
+
+</LinearLayout>

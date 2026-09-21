@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- [신규 재구성] 문서에 테마/스타일 시스템 언급 없음. AppCompatActivity 컴파일에 필요한 최소 테마만 정의(Material3 등 신규 디자인 시스템 도입하지 않음). -->
+<resources>
+    <style name="Theme.IvMonitorReconstructed" parent="Theme.AppCompat.Light.NoActionBar" />
+</resources>

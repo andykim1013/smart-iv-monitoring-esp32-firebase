@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  [신규 재구성]
+  card_background_main (#ECF1E6)와 room_background (#EAF1E1)는 최종보고서 ver1.5.0 본문
+  "코드 설명" 텍스트에 hex 값이 그대로 명시되어 있어 그대로 사용했습니다 (문서 원문 근거).
+
+  green / green2는 본문에 "backgroundTint=@color/green", "background=@color/green2" 처럼
+  색상 '이름'만 언급되고 실제 hex 값은 어디에도 텍스트로 없습니다(스크린샷에만 존재, 읽을 수 없음).
+  아래 값은 "원본 색상"이 아니라 reconstructed approximation(임의로 고른 근사 녹색)입니다.
+-->
+<resources>
+    <color name="card_background_main">#ECF1E6</color> <!-- 문서 원문 hex 값 그대로 -->
+    <color name="room_background">#EAF1E1</color>       <!-- 문서 원문 hex 값 그대로 -->
+
+    <!-- reconstructed approximation — 정확한 원본 hex 불명 -->
+    <color name="green">#4C8C4A</color>
+    <color name="green2">#EAF3E6</color>
+
+    <color name="border_line">#9AA79A</color> <!-- reconstructed approximation, border_shape.xml용 -->
+</resources>

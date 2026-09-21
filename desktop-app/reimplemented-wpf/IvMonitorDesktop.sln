@@ -1,0 +1,17 @@
+
+Microsoft Visual Studio Solution File, Format Version 12.00
+# [신규 재구현] 당시 원본 .sln이 아닙니다. desktop-app/README.md의 기능 명세만 근거로 이번 3단계에서 새로 작성했습니다.
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IvMonitorDesktop", "IvMonitorDesktop\IvMonitorDesktop.csproj", "{9D2B5C7A-3C7E-4C39-9C1E-2E7C0E9F0A01}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9D2B5C7A-3C7E-4C39-9C1E-2E7C0E9F0A01}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9D2B5C7A-3C7E-4C39-9C1E-2E7C0E9F0A01}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9D2B5C7A-3C7E-4C39-9C1E-2E7C0E9F0A01}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9D2B5C7A-3C7E-4C39-9C1E-2E7C0E9F0A01}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

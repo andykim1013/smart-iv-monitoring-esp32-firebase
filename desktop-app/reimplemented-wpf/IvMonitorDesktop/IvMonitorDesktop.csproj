@@ -1,0 +1,33 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <!--
+    [신규 재구현용 build configuration]
+    당시 원본 .csproj/Target Framework는 문서에 근거가 없어 "원본 환경"이 아닙니다.
+    이 PC에는 .NET 7 런타임(Microsoft.WindowsDesktop.App 7.0.0)만 설치되어 있고 .NET SDK는
+    설치되어 있지 않아(dotnet list sdks 결과 없음) net7.0-windows를 선택했습니다. 설치된
+    런타임과 세대를 맞추면 추후 SDK가 설치됐을 때 호환 가능성이 가장 높다는 판단입니다.
+    상세 근거는 docs/reconstruction-changes.md 참조.
+  -->
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net7.0-windows</TargetFramework>
+    <UseWPF>true</UseWPF>
+    <Nullable>disable</Nullable>
+    <ImplicitUsings>disable</ImplicitUsings>
+    <RootNamespace>IvMonitorDesktop</RootNamespace>
+    <AssemblyName>IvMonitorDesktop</AssemblyName>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <!--
+      원본 문서(WPF 담당 팀원 개인보고서)에서 "using FireSharp;" 등으로 실제 언급된 패키지입니다.
+      FireSharp는 2016년경 마지막으로 배포된 .NET Framework 4.5 대상 라이브러리로 알려져 있어,
+      net7.0-windows(SDK 스타일 프로젝트)와의 호환성이 확인되지 않았습니다. 이 PC에 .NET SDK가
+      설치되어 있지 않아 실제 `dotnet restore`/build로 검증하지 못했습니다(정적 구성만 가능).
+      지시에 따라 다른 라이브러리로 임의 교체하지 않고 이 사실을 docs/reconstruction-changes.md와
+      desktop-app/README.md에 명시적으로 보고합니다.
+    -->
+    <PackageReference Include="FireSharp" Version="2.0.4" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,38 @@
+<!--
+  [신규 재구현] 당시 원본 MainWindow.xaml은 존재하지 않습니다(코드 본문은 스크린샷만 존재).
+  DataGrid 컬럼 구성(호실/이름/시작시간/종료시간/예상종료시간/진행도)은
+  desktop-app/README.md에 정리된 최종보고서 ver1.5.0 원문 설명을 근거로 합니다.
+  정확한 픽셀/색상/폰트 지정 근거가 없어 기본 WPF 스타일을 그대로 사용했습니다(원본이라 주장하지 않음).
+-->
+<Window x:Class="IvMonitorDesktop.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="IV Monitor (Reconstructed)" Height="450" Width="800">
+    <Grid Margin="12">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <TextBlock Grid.Row="0" Text="디지털 수액 모니터링 - 재구현본 (원본 아님)" FontWeight="Bold" Margin="0,0,0,8" />
+
+        <DataGrid Grid.Row="1" x:Name="PatientGrid" AutoGenerateColumns="False" IsReadOnly="True">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="호실" Binding="{Binding Room}" />
+                <DataGridTextColumn Header="이름" Binding="{Binding Name}" />
+                <DataGridTextColumn Header="시작시간" Binding="{Binding StartTime}" />
+                <DataGridTextColumn Header="종료시간" Binding="{Binding EndTime}" />
+                <DataGridTextColumn Header="예상종료시간" Binding="{Binding ExpectedEndTime}" />
+                <DataGridTextColumn Header="진행도" Binding="{Binding Progress}" />
+                <DataGridTemplateColumn Header="입력">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <!-- 원문: "이름 열에는 Window2를 실행시키는 버튼이 존재한다" -->
+                            <Button Content="입력" Click="BtnName_Click" Tag="{Binding}" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Window>

@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  [신규 재구성] 당시 activity_main.xml 원문은 존재하지 않습니다.
+  아래 요소는 최종보고서 ver1.5.0 "메인화면 코드" 설명 텍스트(원문)에 근거합니다:
+    "ConstraintLayout ... background=@color/green2"
+    "CardView ... cardCornerRadius=20dp ... cardBackgroundColor=#ECF1E6 ... backgroundTint=@color/green"
+    "TextView ... '건양대학병원' ... '4조'"
+    "Button ... 층별 버튼 6개 ... backgroundTint=@color/green"
+    "ImageView ... 건양대학교 로고와 건양이 사진" (실제 이미지 파일은 원본에 없어 이번 재구성에서는 생략)
+
+  [빌드 호환 대체] 원문은 ConstraintLayout/CardView를 사용했다고 기술하지만, 이 빌드 환경에서 두 라이브러리의
+  커스텀 XML 속성이 AAPT2 리소스 링크 단계에서 인식되지 않는 문제가 발생해(docs/reconstruction-changes.md 참조),
+  표준 프레임워크 LinearLayout + shape drawable(card_background.xml)로 동일한 배치/색상을 재현했습니다.
+
+  @+id/button2 만 recovered-source(MainActivity.java)에서 실제로 findViewById로 참조되어
+  클릭 리스너가 연결됩니다. button1/3/4/5/6은 "층별 버튼 6개" 설명을 반영한 시각적 재현일 뿐,
+  대응하는 Activity가 존재하지 않으므로 onClick을 연결하지 않았습니다(근거 없는 Activity 생성 금지 원칙).
+-->
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/green2"
+    android:padding="24dp">
+
+    <TextView
+        android:id="@+id/textHospitalTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/hospital_title"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:layout_marginTop="16dp" />
+
+    <TextView
+        android:id="@+id/textTeamLabel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/team_label"
+        android:textSize="14sp"
+        android:gravity="center"
+        android:layout_marginTop="4dp"
+        android:layout_marginBottom="24dp" />
+
+    <Button
+        android:id="@+id/button1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="1"
+        android:background="@drawable/card_background"
+        android:backgroundTint="@color/green"
+        android:layout_marginBottom="12dp" />
+
+    <!-- button2: recovered MainActivity.java에서 실제로 참조하는 유일한 버튼 (MainActivity01로 이동) -->
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="2"
+        android:background="@drawable/card_background"
+        android:backgroundTint="@color/green"
+        android:layout_marginBottom="12dp" />
+
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="3"
+        android:background="@drawable/card_background"
+        android:backgroundTint="@color/green"
+        android:layout_marginBottom="12dp" />
+
+    <Button
+        android:id="@+id/button4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="4"
+        android:background="@drawable/card_background"
+        android:backgroundTint="@color/green"
+        android:layout_marginBottom="12dp" />
+
+    <Button
+        android:id="@+id/button5"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="5"
+        android:background="@drawable/card_background"
+        android:backgroundTint="@color/green"
+        android:layout_marginBottom="12dp" />
+
+    <Button
+        android:id="@+id/button6"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="6"
+        android:background="@drawable/card_background"
+        android:backgroundTint="@color/green" />
+
+</LinearLayout>

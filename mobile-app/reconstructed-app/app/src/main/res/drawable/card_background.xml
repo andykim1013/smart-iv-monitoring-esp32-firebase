@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  [신규 재구성 - 빌드 호환 대체]
+  원문(최종보고서 ver1.5.0)에는 "CardView ... cardCornerRadius=20dp ... cardBackgroundColor=#ECF1E6"로
+  기술되어 있으나, 이 빌드 환경에서 androidx.cardview/androidx.constraintlayout의 커스텀 XML 속성이
+  AAPT2 리소스 링크 단계에서 인식되지 않는 문제(docs/reconstruction-changes.md 참조)가 있어,
+  이번 재구성에서는 동일한 둥근 사각형 배경 효과를 표준 프레임워크 shape drawable로 대체했습니다.
+  색상(#ECF1E6)과 모서리 반경(20dp)은 문서 원문 수치를 그대로 사용했습니다.
+-->
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+    <solid android:color="@color/card_background_main" />
+    <corners android:radius="20dp" />
+</shape>

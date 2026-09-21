@@ -1,0 +1,25 @@
+<!--
+  [신규 재구현] 당시 원본 Window2.xaml은 존재하지 않습니다.
+  원문: "환자 정보를 입력하는 창이며 이름, 투여 시간, 투여 용량, 수액 종류를 입력받는다.
+  투여 시간은 시간을 분으로 변환해서 받게 되며 맨 아래 확인 버튼을 누르게 되면 창이 종료된다."
+-->
+<Window x:Class="IvMonitorDesktop.Window2"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="환자 정보 입력" Height="260" Width="320" WindowStartupLocation="CenterOwner">
+    <StackPanel Margin="12">
+        <TextBlock Text="이름" />
+        <TextBox x:Name="NameBox" Margin="0,0,0,8" />
+
+        <TextBlock Text="투여 시간 (분)" />
+        <TextBox x:Name="DosageTimeBox" Margin="0,0,0,8" />
+
+        <TextBlock Text="투여 용량 (g)" />
+        <TextBox x:Name="DosageVolumeBox" Margin="0,0,0,8" />
+
+        <TextBlock Text="수액 종류" />
+        <TextBox x:Name="FluidTypeBox" Margin="0,0,0,16" />
+
+        <Button Content="확인" Click="btn1_Click" />
+    </StackPanel>
+</Window>

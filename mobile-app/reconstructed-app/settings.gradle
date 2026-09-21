@@ -1,0 +1,19 @@
+// [신규 재구성용 build configuration] — 당시 원본 settings.gradle이 아님. 원본은 유실되어 존재하지 않으며,
+// 이 파일은 복원된 Java 소스(MainActivity/MainActivity01)를 정적/빌드 검증하기 위해 이번 3단계에서 새로 작성함.
+pluginManagement {
+    repositories {
+        google()
+        mavenCentral()
+        gradlePluginPortal()
+    }
+}
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositories {
+        google()
+        mavenCentral()
+    }
+}
+
+rootProject.name = "iv-monitor-app-reconstructed"
+include ':app'

@@ -1,0 +1,26 @@
+# ── Android / Gradle ──────────────────────────────────────────────
+mobile-app/reconstructed-app/local.properties
+**/.gradle/
+**/build/
+**/.idea/
+*.iml
+
+# ── WPF / Visual Studio ──────────────────────────────────────────
+**/.vs/
+**/bin/
+**/obj/
+*.user
+*.suo
+
+# ── Secret / local config (실제 값이 든 파일 — example/template은 예외 처리) ──
+desktop-app/reimplemented-wpf/**/FirebaseSettings.cs
+!desktop-app/reimplemented-wpf/**/FirebaseSettings.example.cs
+mobile-app/reconstructed-app/**/google-services.json
+!mobile-app/reconstructed-app/**/google-services.example.json
+**/GoogleService-Info.plist
+.env
+**/secrets.h
+
+# ── OS ────────────────────────────────────────────────────────────
+.DS_Store
+Thumbs.db

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  [신규 재구성] 당시 원본 AndroidManifest.xml은 존재하지 않습니다(문서/화면 어디에도 원문 없음).
+  이 파일은 recovered-source의 실제 Java 클래스(MainActivity, MainActivity01)와
+  최종보고서에서 확인된 화면 구성만 근거로 이번 3단계에서 새로 작성했습니다.
+  문서에 없는 Activity/Permission은 추가하지 않았습니다.
+-->
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- Firebase Realtime Database 네트워크 통신에 필요 (recovered Java의 FirebaseDatabase 사용이 근거) -->
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+        android:allowBackup="true"
+        android:label="@string/app_name"
+        android:theme="@style/Theme.IvMonitorReconstructed">
+
+        <!-- MainActivity: recovered-source 기준 최초 진입 화면(층 선택). 원문에 Launcher 여부 명시는 없으나
+             MainActivity01이 MainActivity를 되돌아가는 대상으로 참조하므로 MainActivity를 시작 화면으로 판단(재구성 근거). -->
+        <activity
+            android:name="com.example.a02.MainActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!-- MainActivity01: recovered-source에서 Intent로 직접 참조되는 병실화면 -->
+        <activity
+            android:name="com.example.a02.MainActivity01"
+            android:exported="false" />
+
+    </application>
+</manifest>

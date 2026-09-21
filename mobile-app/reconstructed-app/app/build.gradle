@@ -1,0 +1,46 @@
+// [신규 재구성용 build configuration]
+// compileSdk/minSdk/targetSdk 값은 원본 문서에 근거가 없어 "당시 원본 설정"이 아닙니다.
+// 이번 3단계 정적/빌드 검증을 위해 새로 선택한 값이며, 근거는 docs/reconstruction-changes.md 참조.
+plugins {
+    id 'com.android.application'
+}
+
+android {
+    namespace 'com.example.a02'
+    compileSdk 34
+
+    defaultConfig {
+        applicationId "com.example.a02" // recovered-source의 실제 package 선언과 동일 (문서 원문 근거)
+        minSdk 24
+        targetSdk 34
+        versionCode 1
+        versionName "reconstructed-1.0"
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+}
+
+// firebase-database가 끌어오는 구버전 kotlin-stdlib-jdk7/jdk8(여러 하위버전)이 최신 kotlin-stdlib(1.8.22)와
+// 클래스가 중복되어 빌드가 실패함(checkDebugDuplicateClasses). Firebase나 Kotlin 버전을 올리지 않고,
+// 모든 configuration에서 중복되는 구버전 transitive 모듈만 제외하는 최소한의 빌드 수정입니다(기능/버전 업그레이드 아님).
+// 상세 근거는 docs/reconstruction-changes.md 참조.
+configurations.all {
+    exclude group: 'org.jetbrains.kotlin', module: 'kotlin-stdlib-jdk7'
+    exclude group: 'org.jetbrains.kotlin', module: 'kotlin-stdlib-jdk8'
+}
+
+dependencies {
+    // 최종보고서 ver1.5.0 본문(3-1 App)에서 실제 텍스트로 언급/확인된 것 중,
+    // AppCompatActivity/Firebase Realtime Database만 포함했습니다.
+    //
+    // [빌드 호환 대체] 원문에는 androidx.constraintlayout / androidx.cardview 사용도 언급되어 있으나,
+    // 이 빌드 환경에서 두 라이브러리의 커스텀 XML 속성이 AAPT2 리소스 링크 단계에서 인식되지 않는
+    // 문제가 있어(docs/reconstruction-changes.md 참조) 레이아웃을 표준 프레임워크 위젯으로
+    // 재구성하면서 이 두 의존성은 실제로 사용되지 않아 제거했습니다. Firebase/Kotlin 버전은
+    // 올리지 않았습니다.
+    implementation 'androidx.appcompat:appcompat:1.7.0'
+    implementation 'com.google.firebase:firebase-database:20.3.0'
+}

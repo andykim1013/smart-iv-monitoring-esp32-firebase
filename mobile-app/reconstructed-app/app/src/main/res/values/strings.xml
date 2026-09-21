@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- [신규 재구성] 앱 이름은 문서에 명시된 공식 이름이 없어 프로젝트명을 그대로 사용함 -->
+<resources>
+    <string name="app_name">IV Monitor (Reconstructed)</string>
+    <string name="hospital_title">건양대학병원</string> <!-- 최종보고서 원문 텍스트에 명시된 화면 표기, 그대로 사용 -->
+    <string name="team_label">4조</string> <!-- 최종보고서 원문 텍스트에 명시된 화면 표기, 그대로 사용 -->
+    <string name="vacant_label">공실</string> <!-- recovered MainActivity01.java 문자열 리터럴과 동일 -->
+</resources>

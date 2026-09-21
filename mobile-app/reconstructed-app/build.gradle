@@ -1,0 +1,7 @@
+// [신규 재구성용 build configuration]
+// AGP/Gradle 버전은 문서에 근거가 없어 "원본 환경"이 아니라, 이번 3단계 검증 시점(2026)에
+// 이 PC에 이미 존재하던 Android SDK(platform 34/35, build-tools 34/35)와 로컬 Gradle 캐시에
+// 맞춰 새로 선택한 값입니다. 선택 근거는 docs/reconstruction-changes.md 참조.
+plugins {
+    id 'com.android.application' version '8.6.0' apply false
+}
