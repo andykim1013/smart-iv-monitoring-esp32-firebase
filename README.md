@@ -105,6 +105,7 @@ smart-iv-monitoring-esp32-firebase/
 
 - **2024년 당시 실제 WPF 전체 소스는 현재 자료에 남아있지 않습니다**(코드 본문은 스크린샷으로만 존재).
 - `desktop-app/reimplemented-wpf/`는 최종보고서에서 확인된 클래스명(`MainWindow`, `Window2`), 메서드명, DataGrid 컬럼, Firebase 경로, 화면 흐름만 근거로 **공개용 포트폴리오 목적의 신규 재구현**입니다.
+- Target Framework는 **net7.0-windows**를 사용했으며, 이는 2026년 공개용 재구현을 위해 선택한 값입니다. **2024년 당시 원본 WPF 프로젝트의 Target Framework는 문서에 근거가 없어 확인되지 않았습니다.**
 - 이 PC에 .NET SDK가 없어 **실제 build는 미검증**입니다(XAML/구문 정적검증만 완료).
 - Firebase 연동에 사용한 **FireSharp 패키지의 최신 .NET(net7.0-windows)과의 호환성도 미검증** 상태입니다.
 
